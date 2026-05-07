@@ -1,2 +1,2 @@
-# theory_gradient_descent
-gradient_descent basic code
+# theory_gradient-descent
+gradient-descent basic code
