@@ -2,10 +2,12 @@
 import random
 ###################################################################################
 # 변수
-X = random.randint(-10, 10)
 
-# 하이퍼파라미터
+# 하이퍼 파라미터
 learning_rate = 0.1
+
+# 파라미터
+X = random.randint(-10, 10)
 
 # 함수
 func_len = 3
@@ -27,6 +29,5 @@ while True:
 print(" ".join(map(str, reversed(coeff))))
 print("경사하강법")
 print(f"({X:.2f}, {func(X):.2f})")
-# 실제값 계산
 print("실제값")
 print(f"({-coeff[1]/coeff[2]/2:.2f}, {func(-coeff[1]/coeff[2]/2):.2f})")
