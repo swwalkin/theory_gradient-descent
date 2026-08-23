@@ -5,15 +5,12 @@ import random
 
 # 하이퍼 파라미터
 learning_rate = 0.1
-
-# 파라미터
 X = random.randint(-10, 10)
 
 # 함수
-func_len = 3
-coeff = [random.randint(-10, 10) for _ in range(func_len)]; coeff[-1] = abs(coeff[-1]) if abs(coeff[-1]) > 0 else 1
-func = lambda x: sum(coeff[i] * x**i for i in range(func_len))
-func_grad = lambda x: sum(i * coeff[i] * x**(i-1) for i in range(func_len))
+coeff = [random.randint(-10, 10) for _ in range(3)]; coeff[-1] = abs(coeff[-1]) if coeff[-1] != 0 else 1
+func = lambda x: sum(coeff[i] * x**i for i in range(3))
+func_grad = lambda x: sum(i * coeff[i] * x**(i-1) for i in range(3))
 ###################################################################################
 # 경사하강법
 temp = func(X)
@@ -26,7 +23,17 @@ while True:
     temp = func(X)
 #########################################
 # 결과 출력
-print(" ".join(map(str, reversed(coeff))))
+txt = f"{coeff[2]}x^2"
+if coeff[1] > 0:
+    txt += f" + {coeff[1]}x"
+elif coeff[1] < 0:
+    txt += f" - {abs(coeff[1])}x"
+if coeff[2] > 0:
+    txt += f" + {coeff[2]}"
+elif coeff[2] < 0:
+    txt += f" - {abs(coeff[2])}"
+
+print(txt)
 print("경사하강법")
 print(f"({X:.2f}, {func(X):.2f})")
 print("실제값")
