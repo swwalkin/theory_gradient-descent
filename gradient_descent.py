@@ -5,12 +5,12 @@ import random
 
 # 하이퍼 파라미터
 learning_rate = 0.1
-X = random.randint(-10, 10)
 
 # 함수
 coeff = [random.randint(-10, 10) for _ in range(3)]; coeff[-1] = abs(coeff[-1]) if coeff[-1] != 0 else 1
 func = lambda x: sum(coeff[i] * x**i for i in range(3))
 func_grad = lambda x: sum(i * coeff[i] * x**(i-1) for i in range(3))
+X = random.randint(-10, 10)
 ###################################################################################
 # 경사하강법
 temp = func(X)
